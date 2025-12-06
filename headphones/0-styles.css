@@ -1,0 +1,217 @@
+/* RESET & VARIABLES */
+:root {
+    /* Colors */
+    --color-primary: #FF6565;
+    --color-white: #FFFFFF;
+    --color-dark: #071629;
+
+    /* Fonts */
+    --font-family-base: 'Source Sans Pro', sans-serif;
+    --font-family-display: 'Spin-Cycle-OT', sans-serif;
+
+    /* Layout */
+    --max-width: 1000px;
+}
+
+/* Custom Font Definition*/
+@font-face {
+    font-family: 'Spin-Cycle-OT';
+    src: url('fonts/Spin-Cycle-OT.otf') format('opentype'),
+         url('fonts/Spin-Cycle-OT.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family-base);
+    color: var(--color-white);
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: var(--color-dark);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Utility Container */
+.container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 20px;
+    width: 100%;
+}
+
+/* HEADER & HERO */
+.header {
+    background-image: url('images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 30px;
+    margin-bottom: 25vh;
+}
+
+.logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+ .nav-links a {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 1px;
+ }
+
+ .nav-links a:hover,
+ .nav-links a:active {
+    color: var(--color-primary);
+ }
+
+ /* Hide checkbox input */
+ .menu-toggle {
+    display: none;
+ }
+
+ .menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--color-primary);
+ }
+
+ /* Hero Content */
+ .hero-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+ .hero-title {
+    font-family: var(--font-family-base);
+    font-weight: 700;
+    font-size: 32px;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+ }
+
+ .hero-subtitle {
+    font-weight: 700;
+    font-size: 16px;
+    margin-bottom: 40px;
+ }
+
+ .hero-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 40px;
+    max-width: 650px;
+ }
+
+ /* Button Styling */
+ .btn {
+    display: inline-block;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: 25px;
+    padding: 12px 32px;
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+ }
+
+ .btn:hover,
+ .btn:active {
+    opacity: 0.9;
+ }
+
+ /* Responsive */
+ @media (max-width: 480px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    /* Navbar Mobile Layout */
+    .navbar {
+        padding-top: 20px;
+        margin-bottom: 15vh;
+        position: relative;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    /* Hamburger Logic (CSS Logic?) */
+    .menu-toggle:checked ~ .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background-color: rgba(7, 22, 41, 0.95);
+        padding: 20px;
+        border-radius: 8px;
+        z-index: 100;
+        align-items: center;
+        gap: 20px;
+    }
+
+    /*Hero adjustments */
+    .hero-title {
+        font-size: 26px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 30px;
+    }
+
+    .hero-text {
+        font-size: 13px;
+        padding: 0 10px;
+    }
+ }
+ 
