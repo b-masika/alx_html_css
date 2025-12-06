@@ -171,8 +171,9 @@ ul {
     /* Navbar Mobile Layout */
     .navbar {
         padding-top: 20px;
-        margin-bottom: 15vh;
+        margin-bottom: 5vh;
         position: relative;
+        flex-wrap: wrap;
     }
     
     .nav-links {
@@ -187,14 +188,14 @@ ul {
     .menu-toggle:checked ~ .nav-links {
         display: flex;
         flex-direction: column;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
+
+        position: relative;
+        width: 100%;
+        margin-top: 20px;
+        
         background-color: rgba(7, 22, 41, 0.95);
         padding: 20px;
         border-radius: 8px;
-        z-index: 100;
         align-items: center;
         gap: 20px;
     }
