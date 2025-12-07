@@ -256,7 +256,7 @@ ul {
 }
 
 .our-results {
-    background-image: url('images/headphones_hero_2.jpg');
+    background-image: url('images/headphones_hero_2.jpg') no-repeat center center;
     background-size: cover;
     color: white;
     position: relative;
