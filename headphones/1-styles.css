@@ -2,7 +2,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box; /* CRITICAL: If this breaks, the grid breaks! */
 }
 
 body {
@@ -25,20 +25,16 @@ ul {
 
 /* VARIABLES & FONTS */
 :root {
-    /* Colors */
     --color-primary: #FF6565;
     --color-white: #FFFFFF;
     --color-dark: #071629;
-
-    /* Fonts */
+    --color-text-grey: #666666;
     --font-family-base: 'Source Sans Pro', sans-serif;
     --font-family-display: 'Spin-Cycle-OT', sans-serif;
-
-    /* Layout */
     --max-width: 1000px;
 }
 
-/* Custom Font: Spin Cycle */
+/* FONTS */
 @font-face {
     font-family: 'Spin-Cycle-OT';
     src: url('fonts/Spin-Cycle-OT.otf') format('opentype'),
@@ -47,7 +43,6 @@ ul {
     font-style: normal;
 }
 
-/* Custom Font: Holberton Icons */
 @font-face {
     font-family: 'holberton_school-icon';
     src: url('fonts/holberton_school-icon.eot');
@@ -59,7 +54,6 @@ ul {
     font-style: normal;
 }
 
-/* Icon Mappings */
 [class^="holberton_school-icon"], [class*=" holberton_school-icon-"] {
     font-family: 'holberton_school-icon' !important;
     font-style: normal;
@@ -71,13 +65,12 @@ ul {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Specific Character Codes */
 .holberton_school-icon-ic_sound:before { content: "\e90e"; }
 .holberton_school-icon-ic_video:before { content: "\e910"; }
 .holberton_school-icon-ic_music:before { content: "\e90d"; }
 .holberton_school-icon-ic_hearing:before { content: "\e909"; }
 
-/* UTILITIES & MAIN SECTIONS */
+/* UTILITIES */
 .container {
     max-width: var(--max-width);
     margin: 0 auto;
@@ -110,34 +103,50 @@ ul {
     color: var(--color-text-grey);
 }
 
- /* Grid System */
- .col-3-12 {
+/* --- GRID SYSTEM --- */
+
+/* 1. Parent Row */
+.row {
+    display: flex;          
+    flex-wrap: wrap;       
+    margin-right: -15px;
+    margin-left: -15px;
+    width: auto;
+}
+
+/* 2. Columns (Desktop) */
+.col-3-12 {
+    width: 25%;             /* 25% width */
+    padding: 0 15px;        /* 15px padding left/right */
+    margin-bottom: 30px;
+    
+    /* Content Layout */
     display: flex;
-    flex-direction: row;
+    flex-direction: column; 
     align-items: center;
     text-align: center;
- }
+}
 
- /* Card Styling */
-
+/* --- CARDS & ICONS --- */
 .icon-wrapper {
     font-size: 60px;
     color: var(--color-primary);
     margin-bottom: 25px;
- }
+    display: block;
+}
 
 .card h3 {
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 10px;
     color: var(--color-dark);
- }
+}
 
 .card p {
     font-size: 14px;
     color: var(--color-dark);
     line-height: 1.6;
- }
+}
 
 /* HEADER & HERO */
 .header {
@@ -151,7 +160,6 @@ ul {
     flex-direction: column;
 }
 
-/* Navbar */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -170,62 +178,59 @@ ul {
     display: flex;
     gap: 30px;
 }
- .nav-links a {
+.nav-links a {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 12px;
     letter-spacing: 1px;
- }
+}
 
- .nav-links a:hover,
- .nav-links a:active {
+.nav-links a:hover,
+.nav-links a:active {
     color: var(--color-primary);
- }
+}
 
- /* Hide checkbox input */
- .menu-toggle, .menu-icon {
+.menu-toggle, .menu-icon {
     display: none;
- }
+}
 
- .menu-icon {
+.menu-icon {
     font-size: 24px;
     cursor: pointer;
     color: var(--color-primary);
- }
+}
 
- /* Hero Content */
- .hero-content {
+.hero-content {
     text-align: center;
     max-width: 800px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     align-items: center;
- }
+}
 
- .hero-title {
+.hero-title {
     font-family: var(--font-family-base);
     font-weight: 700;
     font-size: 32px;
     margin-bottom: 0.5rem;
     line-height: 1.2;
- }
+}
 
- .hero-subtitle {
+.hero-subtitle {
     font-weight: 700;
     font-size: 16px;
     margin-bottom: 40px;
- }
+}
 
- .hero-text {
+.hero-text {
     font-size: 14px;
     line-height: 1.6;
     margin-top: 40px;
     max-width: 650px;
- }
+}
 
- /* Button Styling */
- .btn {
+.btn {
     display: inline-block;
     background-color: var(--color-primary);
     color: var(--color-white);
@@ -238,26 +243,21 @@ ul {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     transition: opacity 0.3s ease;
- }
+}
 
- .btn:hover,
- .btn:active {
+.btn:hover {
     opacity: 0.9;
- }
+}
 
- /* What We Do Section Style */
- .what-we-do {
+.what-we-do {
     background-color: var(--color-white);
     color: var(--color-dark);
- }
+}
 
- /* Responsive */
- @media (max-width: 480px) {
-    .container {
-        padding: 0 20px;
-    }
-
-    /* Navbar Mobile Layout */
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .container { padding: 0 20px; }
+    
     .navbar {
         padding-top: 20px;
         margin-bottom: 5vh;
@@ -268,7 +268,6 @@ ul {
     .nav-links { display: none; }
     .menu-icon { display: block; }
 
-    /* Hamburger Logic (CSS Logic?) */
     .menu-toggle:checked ~ .nav-links {
         display: flex;
         flex-direction: column;
@@ -283,30 +282,24 @@ ul {
         z-index: 10;
     }
 
-    /*Typography adjustments */
     .hero-title { font-size: 26px; }
     .hero-subtitle { font-size: 14px; margin-bottom: 30px; }
     .hero-text { font-size: 13px; padding: 0 10px; }
 
-    /* Stack Columns on Mobile */
+    /* STACK COLUMNS ON MOBILE */
     .col-3-12 {
         width: 100%;
-        flex: 0 0 100%;
-        max-width: 100%;
         margin-bottom: 40px;
     }
 
-    .section-header {
-        margin-bottom: 30px;
-    }
- }
+    .section-header { margin-bottom: 30px; }
+}
 
- @media (min-width: 481px) and (max-width: 768px) {
+@media (min-width: 481px) and (max-width: 768px) {
     .col-3-12 {
         width: 50%;
-        flex: 0 0 50%;
-        max-width: 50%;
         margin-bottom: 40px;
     }
- }
- 
+}
+
+body { background-color: red !important; }
